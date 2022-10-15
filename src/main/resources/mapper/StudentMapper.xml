@@ -13,6 +13,7 @@
         <result column="stu_last_login_time" property="stuLastLoginTime" jdbcType="TIMESTAMP"/>
         <result column="stu_status" property="stuStatus" jdbcType="CHAR"/>
         <result column="stu_security_code" property="stuSecurityCode" jdbcType="VARCHAR"/>
+        <result column="stu_class_name" property="className" jdbcType="VARCHAR"/>
     </resultMap>
     <sql id="Example_Where_Clause">
         <where>

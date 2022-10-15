@@ -11,8 +11,6 @@ public class Student {
 
   private String stuImgSrc;
 
-  private String className;
-
   private String stuSex;
 
   private String stuEmail;
@@ -27,6 +25,8 @@ public class Student {
 
   private String stuSecurityCode;
 
+  private String className;
+
   public String getSno() {
     return sno;
   }
@@ -35,13 +35,6 @@ public class Student {
     this.sno = sno == null ? null : sno.trim();
   }
 
-  public String getClassName() {
-    return className;
-  }
-
-  public void setClassName(String className) {
-    this.className = className == null ? null : className.trim();
-  }
 
   public String getStuPsw() {
     return stuPsw;
@@ -121,5 +114,14 @@ public class Student {
 
   public void setStuSecurityCode(String stuSecurityCode) {
     this.stuSecurityCode = stuSecurityCode == null ? null : stuSecurityCode.trim();
+  }
+
+  public String getClassName() {
+    return className;
+  }
+
+  public Student setClassName(String className) {
+    this.className = className == null ? null : className.trim();
+    return this;
   }
 }

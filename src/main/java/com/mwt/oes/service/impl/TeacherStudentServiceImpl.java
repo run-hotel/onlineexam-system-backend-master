@@ -61,7 +61,7 @@ public class TeacherStudentServiceImpl implements TeacherStudentService {
     if (stuClassName.equals("undefined") || stuClassName.equals("null")) {
 //            System.out.println(stuClassName);
     } else {
-      criteria.andclassNameEqualTo(stuClassName);
+      criteria.andClassNameEqualTo(stuClassName);
     }
     studentExample.setOrderByClause("sno asc");
     List<Student> resultList = studentMapper.selectByExample(studentExample);
