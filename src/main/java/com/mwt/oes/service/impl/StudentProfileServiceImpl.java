@@ -160,49 +160,4 @@ public class StudentProfileServiceImpl implements StudentProfileService {
     return resultList;
   }
 
-  /*
-     通过班级获取学生试卷成绩信息
-   */
-  @Override
-  public List<Map<String, Object>> getPaperClassInfoByClassName(String ClassName) {
-
-    List<Map<String, Object>> resultList = new ArrayList<>();
-
-    StudentPaperScoreExample studentPaperScoreExample = new StudentPaperScoreExample();
-    StudentPaperScoreExample.Criteria criteria = studentPaperScoreExample.createCriteria();
-    criteria.andSnoEqualTo(ClassName);
-    studentPaperScoreExample.setOrderByClause("start_time desc");
-    List<StudentPaperScore> studentPaperScoreList = studentPaperScoreMapper.selectByExample(studentPaperScoreExample);
-    for (StudentPaperScore studentPaperScore : studentPaperScoreList) {
-      Map<String, Object> map = new HashMap<>();
-      map.put("scoreId", studentPaperScore.getScoreId());
-      map.put("score", studentPaperScore.getScore());
-      map.put("timeUsed", studentPaperScore.getTimeUsed());
-      map.put("startTime", studentPaperScore.getStartTime());
-      map.put("endTime", studentPaperScore.getEndTime());
-      map.put("paperId", studentPaperScore.getPaperId());
-
-      Paper paper = paperMapper.selectByPrimaryKey(studentPaperScore.getPaperId());
-      map.put("paperName", paper.getPaperName());
-      map.put("paperCreateTime", paper.getPaperCreateTime());
-      map.put("paperDuration", paper.getPaperDuration());
-      map.put("paperDifficulty", paper.getPaperDifficulty());
-      map.put("paperType", paper.getPaperType());
-      map.put("paperDuration", paper.getPaperDuration());
-      map.put("participateNum", paper.getParticipateNum());
-
-      //计算试卷总分
-      Map<String, Integer> numObj = studentHomeService.getPaperQueNumByPaperId(paper.getPaperId());
-      int singleNum = numObj.get("singleNum");
-      int multipleNum = numObj.get("multipleNum");
-      int judgeNum = numObj.get("judgeNum");
-      int fillNum = numObj.get("fillNum");
-      int totalScore = singleNum * paper.getSingleScore() + multipleNum * paper.getMultipleScore()
-              + judgeNum * paper.getJudgeScore() + fillNum * paper.getFillScore();
-      map.put("totalScore", totalScore);
-
-      resultList.add(map);
-    }
-    return resultList;
-  }
 }

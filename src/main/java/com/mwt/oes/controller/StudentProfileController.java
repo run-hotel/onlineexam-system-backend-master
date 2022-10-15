@@ -147,18 +147,4 @@ public class StudentProfileController {
     }
   }
 
-  /*
-    通过班级获取学生试卷成绩信息
-   */
-  @RequestMapping("/getPaperClassInfo")
-  public ServerResponse getPaperClassInfo(@RequestParam("className") String className) {
-    List<Map<String, Object>> resultList = studentProfileService.getPaperClassInfoByClassName(className);
-    if (resultList != null && resultList.size() > 0) {
-      return ServerResponse.createBySuccess("获取学生试卷成绩信息成功", resultList);
-    } else if (resultList.size() == 0) {
-      return ServerResponse.createByError("成绩列表为空");
-    } else {
-      return ServerResponse.createByError("获取学生试卷成绩信息失败");
-    }
-  }
 }

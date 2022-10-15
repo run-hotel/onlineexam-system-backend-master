@@ -20,5 +20,4 @@ public interface StudentProfileService {
 
   public List<Map<String, Object>> getPaperScoreInfoBySno(String sno);
 
-  public List<Map<String, Object>> getPaperClassInfoByClassName(String ClassName);
 }
