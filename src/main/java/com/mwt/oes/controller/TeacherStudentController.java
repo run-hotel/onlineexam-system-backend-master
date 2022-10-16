@@ -28,6 +28,7 @@ public class TeacherStudentController {
     return ServerResponse.createBySuccess("获取全部学生信息成功", resultList);
   }
 
+
   //    更新学生信息
   @RequestMapping(value = "/updateStudentInfo", method = RequestMethod.POST)
   public ServerResponse updateStudentInfo(@RequestBody(required = false) Student student) {
@@ -48,6 +49,14 @@ public class TeacherStudentController {
     List<Student> resultList = teacherStudentService.searchStudentInfo(sno, stuName, stuSex, stuClassName);
     return ServerResponse.createBySuccess("获取搜索学生信息成功", resultList);
   }
+
+//  //    新增，通过教师id获取班级id
+//  @RequestMapping("/searchclassfromteacherInfo")
+//  public ServerResponse searchclassfromteacherInfo(
+//          @RequestParam("tno") String tno) {
+//    List<Student> resultList = teacherStudentService.searchStudentInfo(tno);
+//    return ServerResponse.createBySuccess("获取搜索学生信息成功", resultList);
+//  }
 
   //    添加学生信息
   @RequestMapping(value = "/insertStudentInfo", method = RequestMethod.POST)
