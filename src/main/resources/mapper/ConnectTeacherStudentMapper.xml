@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mwt.oes.dao.ConnectTeacherStudentMapper">
+    <resultMap id="BaseResultMap" type="com.mwt.oes.domain.ConnectTeacherStudentclass">
+        <result column="teacher_tno" property="teacherTno" jdbcType="VARCHAR"/>
+        <result column="class_tno" property="classTno" jdbcType="VARCHAR"/>
+        <result column="paper_id" property="paperId" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        teacher_tno, class_tno, paper_id
+    </sql>
+    <select id="selectByExample" resultMap="BaseResultMap"
+            parameterType="com.mwt.oes.domain.ConnectTeacherStudentclassExample">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from connect_teacher_studentclass
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <!--    ConnectTeacherStudentclassExample-->
+    <!--    connect_teacher_studentclass-->
+    <!--    teacherTno  classTno   paperId-->
+    <delete id="deleteByExample" parameterType="com.mwt.oes.domain.ConnectTeacherStudentclassExample">
+        delete from connect_teacher_studentclass
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.mwt.oes.domain.ConnectTeacherStudentclass">
+        insert into connect_teacher_studentclass (teacher_tno, class_tno, paper_id)
+        values (#{teacherTno,jdbcType=CHAR}, #{classTno,jdbcType=VARCHAR}, #{paperId,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.mwt.oes.domain.ConnectTeacherStudentclass">
+        insert into connect_teacher_studentclass
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="teacherTno != null">
+                teacher_tno,
+            </if>
+            <if test="classTno != null">
+                class_tno,
+            </if>
+            <if test="paperId != null">
+                paper_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="teacherTno != null">
+                #{teacherTno,jdbcType=VARCHAR},
+            </if>
+            <if test="classTno != null">
+                #{classTno,jdbcType=VARCHAR},
+            </if>
+            <if test="paperId != null">
+                #{paperId,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.mwt.oes.domain.ConnectTeacherStudentclassExample"
+            resultType="java.lang.Integer">
+        select count(*) from connect_teacher_studentclass
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update connect_teacher_studentclass
+        <set>
+            <if test="record.teaPsw != null">
+                teacher_tno = #{record.teacherTno,jdbcType=VARCHAR},
+            </if>
+            <if test="record.teaName != null">
+                class_tno = #{record.classTno,jdbcType=VARCHAR},
+            </if>
+            <if test="record.teaSex != null">
+                paper_id = #{record.paperId,jdbcType=VARCHAR},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update connect_teacher_studentclass
+        set teacher_tno = #{record.teacherTno,jdbcType=VARCHAR},
+        class_tno = #{record.classTno,jdbcType=VARCHAR},
+        paper_id = #{record.paperId,jdbcType=VARCHAR},
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+</mapper>

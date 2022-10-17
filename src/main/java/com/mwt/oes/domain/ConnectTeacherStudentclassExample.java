@@ -117,52 +117,52 @@ public class ConnectTeacherStudentclassExample {
       return (Criteria) this;
     }
 
-    public Criteria andTeacherTnoEqualTo(Integer value) {
+    public Criteria andTeacherTnoEqualTo(String value) {
       addCriterion("teacher_tno =", value, "teacherTno");
       return (Criteria) this;
     }
 
-    public Criteria andTeacherTnoNotEqualTo(Integer value) {
+    public Criteria andTeacherTnoNotEqualTo(String value) {
       addCriterion("teacher_tno <>", value, "teacherTno");
       return (Criteria) this;
     }
 
-    public Criteria andTeacherTnoGreaterThan(Integer value) {
+    public Criteria andTeacherTnoGreaterThan(String value) {
       addCriterion("teacher_tno >", value, "TeacherTno");
       return (Criteria) this;
     }
 
-    public Criteria andTeacherTnoGreaterThanOrEqualTo(Integer value) {
+    public Criteria andTeacherTnoGreaterThanOrEqualTo(String value) {
       addCriterion("teacher_tno >=", value, "teacherTno");
       return (Criteria) this;
     }
 
-    public Criteria andTeacherTnoLessThan(Integer value) {
+    public Criteria andTeacherTnoLessThan(String value) {
       addCriterion("teacher_tno <", value, "teacherTno");
       return (Criteria) this;
     }
 
-    public Criteria andTeacherTnoLessThanOrEqualTo(Integer value) {
+    public Criteria andTeacherTnoLessThanOrEqualTo(String value) {
       addCriterion("teacher_tno <=", value, "teacherTno");
       return (Criteria) this;
     }
 
-    public Criteria andTeacherTnoIn(List<Integer> values) {
+    public Criteria andTeacherTnoIn(List<String> values) {
       addCriterion("teacher_tno in", values, "teacherTno");
       return (Criteria) this;
     }
 
-    public Criteria andTeacherTnoNotIn(List<Integer> values) {
+    public Criteria andTeacherTnoNotIn(List<String> values) {
       addCriterion("teacher_tno not in", values, "teacherTno");
       return (Criteria) this;
     }
 
-    public Criteria andTeacherTnoBetween(Integer value1, Integer value2) {
+    public Criteria andTeacherTnoBetween(String value1, String value2) {
       addCriterion("teacher_tno between", value1, value2, "teacherTno");
       return (Criteria) this;
     }
 
-    public Criteria andTeacherTnoNotBetween(Integer value1, Integer value2) {
+    public Criteria andTeacherTnoNotBetween(String value1, String value2) {
       addCriterion("teacher_tno not between", value1, value2, "teacherTno");
       return (Criteria) this;
     }
@@ -180,52 +180,52 @@ public class ConnectTeacherStudentclassExample {
       return (Criteria) this;
     }
 
-    public Criteria andClassTnoEqualTo(Integer value) {
+    public Criteria andClassTnoEqualTo(String value) {
       addCriterion("class_tno =", value, "classTno");
       return (Criteria) this;
     }
 
-    public Criteria andClassTnoNotEqualTo(Integer value) {
+    public Criteria andClassTnoNotEqualTo(String value) {
       addCriterion("class_tno <>", value, "classTno");
       return (Criteria) this;
     }
 
-    public Criteria andClassTnoGreaterThan(Integer value) {
+    public Criteria andClassTnoGreaterThan(String value) {
       addCriterion("class_tno >", value, "classTno");
       return (Criteria) this;
     }
 
-    public Criteria andClassTnoGreaterThanOrEqualTo(Integer value) {
+    public Criteria andClassTnoGreaterThanOrEqualTo(String value) {
       addCriterion("class_tno >=", value, "classTno");
       return (Criteria) this;
     }
 
-    public Criteria andClassTnoLessThan(Integer value) {
+    public Criteria andClassTnoLessThan(String value) {
       addCriterion("class_tno <", value, "classTno");
       return (Criteria) this;
     }
 
-    public Criteria andClassTnoLessThanOrEqualTo(Integer value) {
+    public Criteria andClassTnoLessThanOrEqualTo(String value) {
       addCriterion("class_tno <=", value, "classTno");
       return (Criteria) this;
     }
 
-    public Criteria andClassTnoIn(List<Integer> values) {
+    public Criteria andClassTnoIn(List<String> values) {
       addCriterion("class_tno in", values, "classTno");
       return (Criteria) this;
     }
 
-    public Criteria andClassTnoNotIn(List<Integer> values) {
+    public Criteria andClassTnoNotIn(List<String> values) {
       addCriterion("class_tno not in", values, "classTno");
       return (Criteria) this;
     }
 
-    public Criteria andClassTnoBetween(Integer value1, Integer value2) {
+    public Criteria andClassTnoBetween(String value1, String value2) {
       addCriterion("class_tno between", value1, value2, "classTno");
       return (Criteria) this;
     }
 
-    public Criteria andClassTnoNotBetween(Integer value1, Integer value2) {
+    public Criteria andClassTnoNotBetween(String value1, String value2) {
       addCriterion("class_tno not between", value1, value2, "classTno");
       return (Criteria) this;
     }
@@ -240,52 +240,52 @@ public class ConnectTeacherStudentclassExample {
       return (Criteria) this;
     }
 
-    public Criteria andPaperIdEqualTo(Integer value) {
+    public Criteria andPaperIdEqualTo(String value) {
       addCriterion("paper_id =", value, "paperId");
       return (Criteria) this;
     }
 
-    public Criteria andPaperIdNotEqualTo(Integer value) {
+    public Criteria andPaperIdNotEqualTo(String value) {
       addCriterion("paper_id <>", value, "paperId");
       return (Criteria) this;
     }
 
-    public Criteria andPaperIdGreaterThan(Integer value) {
+    public Criteria andPaperIdGreaterThan(String value) {
       addCriterion("paper_id >", value, "paperId");
       return (Criteria) this;
     }
 
-    public Criteria andPaperIdGreaterThanOrEqualTo(Integer value) {
+    public Criteria andPaperIdGreaterThanOrEqualTo(String value) {
       addCriterion("paper_id >=", value, "paperId");
       return (Criteria) this;
     }
 
-    public Criteria andPaperIdLessThan(Integer value) {
+    public Criteria andPaperIdLessThan(String value) {
       addCriterion("paper_id <", value, "paperId");
       return (Criteria) this;
     }
 
-    public Criteria andPaperIdLessThanOrEqualTo(Integer value) {
+    public Criteria andPaperIdLessThanOrEqualTo(String value) {
       addCriterion("paper_id <=", value, "paperId");
       return (Criteria) this;
     }
 
-    public Criteria andPaperIdIn(List<Integer> values) {
+    public Criteria andPaperIdIn(List<String> values) {
       addCriterion("paper_id in", values, "paperId");
       return (Criteria) this;
     }
 
-    public Criteria andPaperIdNotIn(List<Integer> values) {
+    public Criteria andPaperIdNotIn(List<String> values) {
       addCriterion("paper_id not in", values, "paperId");
       return (Criteria) this;
     }
 
-    public Criteria andPaperIdBetween(Integer value1, Integer value2) {
+    public Criteria andPaperIdBetween(String value1, String value2) {
       addCriterion("paper_id between", value1, value2, "paperId");
       return (Criteria) this;
     }
 
-    public Criteria andPaperIdNotBetween(Integer value1, Integer value2) {
+    public Criteria andPaperIdNotBetween(String value1, String value2) {
       addCriterion("paper_id not between", value1, value2, "paperId");
       return (Criteria) this;
     }

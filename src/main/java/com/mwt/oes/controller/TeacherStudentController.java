@@ -1,6 +1,8 @@
 package com.mwt.oes.controller;
 
+import com.mwt.oes.domain.ConnectTeacherStudentclass;
 import com.mwt.oes.domain.Student;
+import com.mwt.oes.service.ConnectTeacherStudentService;
 import com.mwt.oes.service.StudentSystemService;
 import com.mwt.oes.service.TeacherStudentService;
 import com.mwt.oes.util.ServerResponse;
@@ -18,6 +20,10 @@ import java.util.Map;
 public class TeacherStudentController {
   @Autowired
   private TeacherStudentService teacherStudentService;
+
+  @Autowired
+  private ConnectTeacherStudentService connectTeacherStudentService;
+
   @Autowired
   private StudentSystemService studentSystemService;
 
@@ -50,13 +56,13 @@ public class TeacherStudentController {
     return ServerResponse.createBySuccess("获取搜索学生信息成功", resultList);
   }
 
-//  //    新增，通过教师id获取班级id
-//  @RequestMapping("/searchclassfromteacherInfo")
-//  public ServerResponse searchclassfromteacherInfo(
-//          @RequestParam("tno") String tno) {
-//    List<Student> resultList = teacherStudentService.searchStudentInfo(tno);
-//    return ServerResponse.createBySuccess("获取搜索学生信息成功", resultList);
-//  }
+  //    新增，通过教师id获取班级id
+  @RequestMapping("/searchclassfromteacherInfo")
+  public ServerResponse searchclassfromteacherInfo(
+          @RequestParam("tno") String tno) {
+    List<ConnectTeacherStudentclass> resultList = connectTeacherStudentService.searchConnectTeacherStudentclassInfo(tno);
+    return ServerResponse.createBySuccess("获取搜索学生信息成功", resultList);
+  }
 
   //    添加学生信息
   @RequestMapping(value = "/insertStudentInfo", method = RequestMethod.POST)
