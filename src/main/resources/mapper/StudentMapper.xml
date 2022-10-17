@@ -114,11 +114,11 @@
         insert into student (sno, stu_psw, stu_name,
                              stu_img_src, stu_sex, stu_email,
                              stu_phone, stu_create_time, stu_last_login_time,
-                             stu_status, stu_security_code)
+                             stu_status, stu_security_code, stu_class_name)
         values (#{sno,jdbcType=CHAR}, #{stuPsw,jdbcType=VARCHAR}, #{stuName,jdbcType=VARCHAR},
                 #{stuImgSrc,jdbcType=VARCHAR}, #{stuSex,jdbcType=VARCHAR}, #{stuEmail,jdbcType=VARCHAR},
                 #{stuPhone,jdbcType=CHAR}, #{stuCreateTime,jdbcType=TIMESTAMP}, #{stuLastLoginTime,jdbcType=TIMESTAMP},
-                #{stuStatus,jdbcType=CHAR}, #{stuSecurityCode,jdbcType=VARCHAR})
+                #{stuStatus,jdbcType=CHAR}, #{stuSecurityCode,jdbcType=VARCHAR}, #{className,jdbcType=VARCHAR})
     </insert>
     <insert id="insertSelective" parameterType="com.mwt.oes.domain.Student">
         insert into student
@@ -156,6 +156,9 @@
             <if test="stuSecurityCode != null">
                 stu_security_code,
             </if>
+            <if test="className != null">
+                stu_class_name
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="sno != null">
@@ -190,6 +193,9 @@
             </if>
             <if test="stuSecurityCode != null">
                 #{stuSecurityCode,jdbcType=VARCHAR},
+            </if>
+            <if test="className != null">
+                #{className,jdbcType=VARCHAR}
             </if>
         </trim>
     </insert>
@@ -235,6 +241,9 @@
             <if test="record.stuSecurityCode != null">
                 stu_security_code = #{record.stuSecurityCode,jdbcType=VARCHAR},
             </if>
+            <if test="record.className != null">
+                stu_class_name = #{record.className,jdbcType=VARCHAR}
+            </if>
         </set>
         <if test="_parameter != null">
             <include refid="Update_By_Example_Where_Clause"/>
@@ -252,7 +261,8 @@
         stu_create_time = #{record.stuCreateTime,jdbcType=TIMESTAMP},
         stu_last_login_time = #{record.stuLastLoginTime,jdbcType=TIMESTAMP},
         stu_status = #{record.stuStatus,jdbcType=CHAR},
-        stu_security_code = #{record.stuSecurityCode,jdbcType=VARCHAR}
+        stu_security_code = #{record.stuSecurityCode,jdbcType=VARCHAR},
+        stu_class_name = #{record.className,jdbcType=VARCHAR}
         <if test="_parameter != null">
             <include refid="Update_By_Example_Where_Clause"/>
         </if>
@@ -290,6 +300,9 @@
             <if test="stuSecurityCode != null">
                 stu_security_code = #{stuSecurityCode,jdbcType=VARCHAR},
             </if>
+            <if test="record.className != null">
+                stu_class_name = #{record.className,jdbcType=VARCHAR}
+            </if>
         </set>
         where sno = #{sno,jdbcType=CHAR}
     </update>
@@ -304,7 +317,8 @@
             stu_create_time     = #{stuCreateTime,jdbcType=TIMESTAMP},
             stu_last_login_time = #{stuLastLoginTime,jdbcType=TIMESTAMP},
             stu_status          = #{stuStatus,jdbcType=CHAR},
-            stu_security_code   = #{stuSecurityCode,jdbcType=VARCHAR}
+            stu_security_code   = #{stuSecurityCode,jdbcType=VARCHAR},
+            stu_class_name      = #{className,jdbcType=VARCHAR}
         where sno = #{sno,jdbcType=CHAR}
     </update>
 </mapper>

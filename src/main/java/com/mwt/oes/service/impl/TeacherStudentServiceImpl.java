@@ -24,7 +24,7 @@ public class TeacherStudentServiceImpl implements TeacherStudentService {
   PaperMapper paperMapper;
   @Autowired
   StudentPaperAnswerMapper studentPaperAnswerMapper;
-  @Autowired
+
   StudentHomeService studentHomeService;
   @Autowired
   StudentSystemService studentSystemService;

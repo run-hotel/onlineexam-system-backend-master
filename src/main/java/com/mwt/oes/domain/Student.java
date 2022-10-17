@@ -120,8 +120,7 @@ public class Student {
     return className;
   }
 
-  public Student setClassName(String className) {
+  public void setClassName(String className) {
     this.className = className == null ? null : className.trim();
-    return this;
   }
 }
