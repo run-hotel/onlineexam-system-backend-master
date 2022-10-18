@@ -9,10 +9,7 @@ import com.mwt.oes.util.ServerResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @CrossOrigin
 @RestController
@@ -29,9 +26,16 @@ public class TeacherStudentController {
 
   //    获取学生列表信息
   @RequestMapping("/getStudentsList")
-  public ServerResponse getStudentsList() {
-    List<Student> resultList = teacherStudentService.getStudentsList();
-    return ServerResponse.createBySuccess("获取全部学生信息成功", resultList);
+  public ServerResponse getStudentsList(@RequestParam("teacher_id") String teacher_id) {
+    List<ConnectTeacherStudentclass> resultList1 = connectTeacherStudentService.searchConnectTeacherStudentclassInfo(teacher_id);
+    List<Student> resultList2 = new ArrayList<Student>();
+    for (int i = 0; i < resultList1.size(); ++i) {
+      List<Student> resultList = teacherStudentService.searchStudentInfo("", "", "男", resultList1.get(i).getClassTno());
+      for (int j = 0; j < resultList.size(); ++j) {
+        resultList2.add(resultList.get(j));
+      }
+    }
+    return ServerResponse.createBySuccess("获取全部学生信息成功", resultList2);
   }
 
 
