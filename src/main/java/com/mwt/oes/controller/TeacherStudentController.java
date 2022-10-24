@@ -43,7 +43,7 @@ public class TeacherStudentController {
     List<Student> resultList = teacherStudentService.getStudentsList();
     return ServerResponse.createBySuccess("获取全部学生信息成功", resultList);
   }
-  
+
   @RequestMapping("/getStudentClasses")
   public ServerResponse getStudentClasses() {
     List<Student> resultList = teacherStudentService.getStudentsList();

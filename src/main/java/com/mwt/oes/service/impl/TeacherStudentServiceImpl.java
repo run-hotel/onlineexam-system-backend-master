@@ -24,7 +24,7 @@ public class TeacherStudentServiceImpl implements TeacherStudentService {
   PaperMapper paperMapper;
   @Autowired
   StudentPaperAnswerMapper studentPaperAnswerMapper;
-
+  @Autowired
   StudentHomeService studentHomeService;
   @Autowired
   StudentSystemService studentSystemService;
@@ -176,6 +176,7 @@ public class TeacherStudentServiceImpl implements TeacherStudentService {
 
   @Override
   public Map<String, Object> getChartData(Integer paperId) {
+//    System.out.println(paperId);
     Map<String, Object> map = new HashMap<>();
     StudentPaperScoreExample studentPaperScoreExample = new StudentPaperScoreExample();
     StudentPaperScoreExample.Criteria criteria = studentPaperScoreExample.createCriteria();
