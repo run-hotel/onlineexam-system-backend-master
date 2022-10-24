@@ -282,15 +282,18 @@ public class TeacherStudentServiceImpl implements TeacherStudentService {
         responseStudent.put("上传状态", "失败，该学号已被注册");
       } else {
         responseStudent.put("上传状态", "成功");
+        System.out.println(stuClassName);
         successItemCount++;
         Student student = new Student();
         student.setSno(sno);
+        student.setStuSecurityCode("123456");
+        student.setStuStatus("1");
         student.setStuName(stuName);
         student.setStuSex(stuSex);
         student.setStuCreateTime(new Date());
-        student.setStuName(stuClassName);
+        student.setClassName(stuClassName);
         student.setStuPsw("123456");
-        int insertResult = studentMapper.insertSelective(student);
+        int insertResult = studentMapper.insert(student);
       }
       responseList.add(responseStudent);
     }
