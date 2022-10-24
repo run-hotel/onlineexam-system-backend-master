@@ -43,6 +43,22 @@ public class TeacherStudentController {
     List<Student> resultList = teacherStudentService.getStudentsList();
     return ServerResponse.createBySuccess("获取全部学生信息成功", resultList);
   }
+  
+  @RequestMapping("/getStudentClasses")
+  public ServerResponse getStudentClasses() {
+    List<Student> resultList = teacherStudentService.getStudentsList();
+    List<String> res = new ArrayList<>();
+    HashMap<String, Integer> hashMap = new HashMap<>();
+    for (int i = 0; i < resultList.size(); ++i) {
+      hashMap.put(resultList.get(i).getClassName(), 1);
+    }
+    Set<String> doubleSet = hashMap.keySet();
+    for (String str : doubleSet) {
+      res.add(str);
+    }
+
+    return ServerResponse.createBySuccess("获取全部班级成功", res);
+  }
 
   //    更新学生信息
   @RequestMapping(value = "/updateStudentInfo", method = RequestMethod.POST)
