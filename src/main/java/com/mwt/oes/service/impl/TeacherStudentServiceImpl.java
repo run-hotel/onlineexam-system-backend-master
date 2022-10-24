@@ -272,9 +272,11 @@ public class TeacherStudentServiceImpl implements TeacherStudentService {
       String sno = (String) studentSingle.get("sno");
       String stuName = (String) studentSingle.get("stuName");
       String stuSex = (String) studentSingle.get("stuSex");
+      String stuClassName = (String) studentSingle.get("stuClassName");
       responseStudent.put("学号", sno);
       responseStudent.put("姓名", stuName);
       responseStudent.put("性别", stuSex);
+      responseStudent.put("班级", stuClassName);
       boolean isRegistered = studentSystemService.snoIsExist(sno);
       if (isRegistered) {
         responseStudent.put("上传状态", "失败，该学号已被注册");
@@ -286,6 +288,8 @@ public class TeacherStudentServiceImpl implements TeacherStudentService {
         student.setStuName(stuName);
         student.setStuSex(stuSex);
         student.setStuCreateTime(new Date());
+        student.setStuName(stuClassName);
+        student.setStuPsw("123456");
         int insertResult = studentMapper.insertSelective(student);
       }
       responseList.add(responseStudent);
