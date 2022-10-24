@@ -25,7 +25,7 @@ public class TeacherStudentController {
   private StudentSystemService studentSystemService;
 
   //    获取学生列表信息
-  @RequestMapping("/getStudentsList")
+  @RequestMapping("/getStudentsListall")
   public ServerResponse getStudentsList(@RequestParam("teacher_id") String teacher_id) {
     List<ConnectTeacherStudentclass> resultList1 = connectTeacherStudentService.searchConnectTeacherStudentclassInfo(teacher_id);
     List<Student> resultList2 = new ArrayList<Student>();
@@ -38,6 +38,11 @@ public class TeacherStudentController {
     return ServerResponse.createBySuccess("获取全部学生信息成功", resultList2);
   }
 
+  @RequestMapping("/getStudentsList")
+  public ServerResponse getStudentsList() {
+    List<Student> resultList = teacherStudentService.getStudentsList();
+    return ServerResponse.createBySuccess("获取全部学生信息成功", resultList);
+  }
 
   //    更新学生信息
   @RequestMapping(value = "/updateStudentInfo", method = RequestMethod.POST)

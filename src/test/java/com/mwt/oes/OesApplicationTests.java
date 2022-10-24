@@ -13,22 +13,22 @@ import org.springframework.test.context.web.WebAppConfiguration;
 @SpringBootTest
 @WebAppConfiguration
 public class OesApplicationTests {
+	
+  StudentProfileService studentProfileService;
 
-	StudentProfileService studentProfileService;
+  @Before
+  public void init() {
+    System.out.println("开始测试-----------------");
+  }
 
-	@Before
-	public void init(){
-		System.out.println("开始测试-----------------");
-	}
+  @After
+  public void after() {
+    System.out.println("测试结束-----------------");
+  }
 
-	@After
-	public void after(){
-		System.out.println("测试结束-----------------");
-	}
+  @Test
+  public void contextLoads() {
 
-	@Test
-	public void contextLoads() {
-
-	}
+  }
 
 }
