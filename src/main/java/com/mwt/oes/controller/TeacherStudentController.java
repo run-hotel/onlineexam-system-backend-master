@@ -1,8 +1,10 @@
 package com.mwt.oes.controller;
 
 import com.mwt.oes.domain.ConnectTeacherStudentclass;
+import com.mwt.oes.domain.PaperPushlish;
 import com.mwt.oes.domain.Student;
 import com.mwt.oes.service.ConnectTeacherStudentService;
+import com.mwt.oes.service.PaperPublishService;
 import com.mwt.oes.service.StudentSystemService;
 import com.mwt.oes.service.TeacherStudentService;
 import com.mwt.oes.util.ServerResponse;
@@ -23,6 +25,9 @@ public class TeacherStudentController {
 
   @Autowired
   private StudentSystemService studentSystemService;
+
+  @Autowired
+  private PaperPublishService paperPublishService;
 
   //    获取学生列表信息
   @RequestMapping("/getStudentsListall")
@@ -89,6 +94,29 @@ public class TeacherStudentController {
     return ServerResponse.createBySuccess("获取搜索学生信息成功", resultList);
   }
 
+  //    新增，增加查询试卷
+  @RequestMapping("/searchclasspaperInfo")
+  public ServerResponse searchclasspaperInfo(
+          @RequestParam("tno") String tno) {
+    List<PaperPushlish> resultList = paperPublishService.searchPaperPublishclassInfo(tno);
+    return ServerResponse.createBySuccess("获取试卷成功", resultList);
+  }
+  //    数据库 connect_teacher_student_class新增
+  @RequestMapping(value = "/insertPaperPublishInfo", method = RequestMethod.POST)
+  public ServerResponse insertStudentInfo(@RequestBody(required = false) PaperPushlish paperPushlish) {
+//    boolean isRegistered = connectteacherstudentclass.snoIsExist(student.getSno());
+//    if (isRegistered) {
+//      return ServerResponse.createByError("此学号已被注册");
+//    }
+
+//    connectteacherstudentclass.setStuCreateTime(new Date());
+    int result = paperPublishService.insertPaperPublishInfo(paperPushlish);
+    if (result > 0) {
+      return ServerResponse.createBySuccess("插入数据成功", null);
+    } else {
+      return ServerResponse.createByError("数据库错误，插入数据信息失败");
+    }
+  }
   //    添加学生信息
   @RequestMapping(value = "/insertStudentInfo", method = RequestMethod.POST)
   public ServerResponse insertStudentInfo(@RequestBody(required = false) Student student) {
