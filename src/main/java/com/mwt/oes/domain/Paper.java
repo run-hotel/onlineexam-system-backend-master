@@ -29,6 +29,36 @@ public class Paper {
 
     private Integer participateNum;
 
+    private String tno;
+
+    private Date paperStartTime;
+
+    private String className;
+
+    public String getTno() {
+        return tno;
+    }
+
+    public void setTno(String tno) {
+        this.tno = tno;
+    }
+
+    public Date getPaperStartTime() {
+        return paperStartTime;
+    }
+
+    public void setPaperStartTime(Date paperStartTime) {
+        this.paperStartTime = paperStartTime;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
     public Integer getPaperId() {
         return paperId;
     }

@@ -72,6 +72,9 @@ public class TeacherPaperServiceImpl implements TeacherPaperService {
 
             map.put("participateNum", paper.getParticipateNum());
             map.put("paperCreateTime", paper.getPaperCreateTime());
+            map.put("paperCreateTno",paper.getTno());
+            map.put("paperStartTime",paper.getPaperStartTime());
+            map.put("stuClassName",paper.getClassName());
             resultList.add(map);
         }
         return resultList;
@@ -142,6 +145,9 @@ public class TeacherPaperServiceImpl implements TeacherPaperService {
 
             map.put("participateNum", paper.getParticipateNum());
             map.put("paperCreateTime", paper.getPaperCreateTime());
+            map.put("paperCreateTno",paper.getTno());
+            map.put("paperStartTime",paper.getPaperStartTime());
+            map.put("stuClassName",paper.getClassName());
             resultList.add(map);
         }
         return resultList;
@@ -370,6 +376,8 @@ public class TeacherPaperServiceImpl implements TeacherPaperService {
         Integer fillScore = (Integer) obj.get("fillScore");
         Integer fillNum = (Integer) obj.get("fillNum");
         Integer langId = (Integer) obj.get("langId");
+        Date startTime = (Date) obj.get("paperStartTime");
+
         Paper paper = new Paper();
         paper.setPaperName(paperName);
         paper.setPaperDuration(paperDuration);
@@ -382,6 +390,7 @@ public class TeacherPaperServiceImpl implements TeacherPaperService {
         paper.setLangId(langId);
         paper.setPaperCreateTime(new Date());
         paper.setPaperType(1);
+        paper.setPaperStartTime(startTime);
         int paperId = paperMapper.selectMaxPaperId() + 1;
         paper.setPaperId(paperId);
 
@@ -554,6 +563,8 @@ public class TeacherPaperServiceImpl implements TeacherPaperService {
         Integer fillScore = (Integer) obj.get("fillScore");
         List<Integer> fillNum = (List<Integer>) obj.get("fillNum");
         Integer langId = (Integer) obj.get("langId");
+        Date startTime = (Date) obj.get("paperStartTime");
+
         Paper paper = new Paper();
         paper.setPaperName(paperName);
         paper.setPaperDuration(paperDuration);
@@ -566,6 +577,7 @@ public class TeacherPaperServiceImpl implements TeacherPaperService {
         paper.setLangId(langId);
         paper.setPaperCreateTime(new Date());
         paper.setPaperType(2);
+        paper.setPaperStartTime(startTime);
         int paperId = paperMapper.selectMaxPaperId() + 1;
         paper.setPaperId(paperId);
 

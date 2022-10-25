@@ -904,6 +904,206 @@ public class PaperExample {
       addCriterion("participate_num not between", value1, value2, "participateNum");
       return (Criteria) this;
     }
+
+    public Criteria andTnoIsNull() {
+      addCriterion("tno is null");
+      return (Criteria) this;
+    }
+
+    public Criteria andTnoIsNotNull() {
+      addCriterion("tno is not null");
+      return (Criteria) this;
+    }
+
+    public Criteria andTnoEqualTo(String value) {
+      addCriterion("tno =", value, "tno");
+      return (Criteria) this;
+    }
+
+    public Criteria andTnoNotEqualTo(String value) {
+      addCriterion("tno <>", value, "tno");
+      return (Criteria) this;
+    }
+
+    public Criteria andTnoGreaterThan(String value) {
+      addCriterion("tno >", value, "tno");
+      return (Criteria) this;
+    }
+
+    public Criteria andTnoGreaterThanOrEqualTo(String value) {
+      addCriterion("tno >=", value, "tno");
+      return (Criteria) this;
+    }
+
+    public Criteria andTnoLessThan(String value) {
+      addCriterion("tno <", value, "tno");
+      return (Criteria) this;
+    }
+
+    public Criteria andTnoLessThanOrEqualTo(String value) {
+      addCriterion("tno <=", value, "tno");
+      return (Criteria) this;
+    }
+
+    public Criteria andTnoLike(String value) {
+      addCriterion("tno like", value, "tno");
+      return (Criteria) this;
+    }
+
+    public Criteria andTnoNotLike(String value) {
+      addCriterion("tno not like", value, "tno");
+      return (Criteria) this;
+    }
+
+    public Criteria andTnoIn(List<String> values) {
+      addCriterion("tno in", values, "tno");
+      return (Criteria) this;
+    }
+
+    public Criteria andTnoNotIn(List<String> values) {
+      addCriterion("tno not in", values, "tno");
+      return (Criteria) this;
+    }
+
+    public Criteria andTnoBetween(String value1, String value2) {
+      addCriterion("tno between", value1, value2, "tno");
+      return (Criteria) this;
+    }
+
+    public Criteria andTnoNotBetween(String value1, String value2) {
+      addCriterion("tno not between", value1, value2, "tno");
+      return (Criteria) this;
+    }
+
+    public Criteria andPaperStartTimeIsNull() {
+      addCriterion("paper_start_time is null");
+      return (Criteria) this;
+    }
+
+    public Criteria andPaperStartTimeIsNotNull() {
+      addCriterion("paper_start_time is not null");
+      return (Criteria) this;
+    }
+
+    public Criteria andPaperStartTimeEqualTo(Date value) {
+      addCriterion("paper_start_time =", value, "paperStartTime");
+      return (Criteria) this;
+    }
+
+    public Criteria andPaperStartTimeNotEqualTo(Date value) {
+      addCriterion("paper_start_time <>", value, "paperStartTime");
+      return (Criteria) this;
+    }
+
+    public Criteria andPaperStartTimeGreaterThan(Date value) {
+      addCriterion("paper_start_time >", value, "paperStartTime");
+      return (Criteria) this;
+    }
+
+    public Criteria andPaperStartTimeGreaterThanOrEqualTo(Date value) {
+      addCriterion("paper_start_time >=", value, "paperStartTime");
+      return (Criteria) this;
+    }
+
+    public Criteria andPaperStartTimeLessThan(Date value) {
+      addCriterion("paper_start_time <", value, "paperStartTime");
+      return (Criteria) this;
+    }
+
+    public Criteria andPaperStartTimeLessThanOrEqualTo(Date value) {
+      addCriterion("paper_start_time <=", value, "paperStartTime");
+      return (Criteria) this;
+    }
+
+    public Criteria andPaperStartTimeIn(List<Date> values) {
+      addCriterion("paper_start_time in", values, "paperStartTime");
+      return (Criteria) this;
+    }
+
+    public Criteria andPaperStartTimeNotIn(List<Date> values) {
+      addCriterion("paper_start_time not in", values, "paperStartTime");
+      return (Criteria) this;
+    }
+
+    public Criteria andPaperStartTimeBetween(Date value1, Date value2) {
+      addCriterion("paper_start_time between", value1, value2, "paperStartTime");
+      return (Criteria) this;
+    }
+
+    public Criteria andPaperStartTimeNotBetween(Date value1, Date value2) {
+      addCriterion("paper_start_time not between", value1, value2, "paperStartTime");
+      return (Criteria) this;
+    }
+
+    public Criteria andClassNameIsNull() {
+      addCriterion("stu_class_name is null");
+      return (Criteria) this;
+    }
+
+    public Criteria andClassNameIsNotNull() {
+      addCriterion("stu_class_name is not null");
+      return (Criteria) this;
+    }
+
+    public Criteria andClassNameEqualTo(String value) {
+      addCriterion("stu_class_name =", value, "className");
+      return (Criteria) this;
+    }
+
+    public Criteria andClassNameNotEqualTo(String value) {
+      addCriterion("stu_class_name <>", value, "className");
+      return (Criteria) this;
+    }
+
+    public Criteria andClassNameGreaterThan(String value) {
+      addCriterion("stu_class_name >", value, "className");
+      return (Criteria) this;
+    }
+
+    public Criteria andClassNameGreaterThanOrEqualTo(String value) {
+      addCriterion("stu_class_name >=", value, "className");
+      return (Criteria) this;
+    }
+
+    public Criteria andClassNameLessThan(String value) {
+      addCriterion("stu_class_name <", value, "className");
+      return (Criteria) this;
+    }
+
+    public Criteria andClassNameLessThanOrEqualTo(String value) {
+      addCriterion("stu_class_name <=", value, "className");
+      return (Criteria) this;
+    }
+
+    public Criteria andClassNameLike(String value) {
+      addCriterion("stu_class_name like", value, "className");
+      return (Criteria) this;
+    }
+
+    public Criteria andClassNameNotLike(String value) {
+      addCriterion("stu_class_name not like", value, "className");
+      return (Criteria) this;
+    }
+
+    public Criteria andClassNameIn(List<String> values) {
+      addCriterion("stu_class_name in", values, "className");
+      return (Criteria) this;
+    }
+
+    public Criteria andClassNameNotIn(List<String> values) {
+      addCriterion("stu_class_name not in", values, "className");
+      return (Criteria) this;
+    }
+
+    public Criteria andClassNameBetween(String value1, String value2) {
+      addCriterion("stu_class_name between", value1, value2, "className");
+      return (Criteria) this;
+    }
+
+    public Criteria andClassNameNotBetween(String value1, String value2) {
+      addCriterion("stu_class_name not between", value1, value2, "className");
+      return (Criteria) this;
+    }
   }
 
   public static class Criteria extends GeneratedCriteria {

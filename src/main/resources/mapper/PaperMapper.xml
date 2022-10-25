@@ -15,6 +15,9 @@
     <result column="fill_score" property="fillScore" jdbcType="INTEGER" />
     <result column="lang_id" property="langId" jdbcType="INTEGER" />
     <result column="participate_num" property="participateNum" jdbcType="INTEGER" />
+    <result column="create_tno" property="tno" jdbcType="CHAR" />
+    <result column="start_time" property="paperStartTime" jdbcType="TIMESTAMP" />
+    <result column="stu_class_name" property="className" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -76,7 +79,8 @@
   </sql>
   <sql id="Base_Column_List" >
     paper_id, paper_name, paper_create_time, paper_duration, paper_difficulty, paper_attention, 
-    paper_type, single_score, multiple_score, judge_score, fill_score, lang_id, participate_num
+    paper_type, single_score, multiple_score, judge_score, fill_score, lang_id, participate_num,
+    create_tno, start_time, stu_class_name
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mwt.oes.domain.PaperExample" >
     select
@@ -118,12 +122,12 @@
       paper_duration, paper_difficulty, paper_attention, 
       paper_type, single_score, multiple_score, 
       judge_score, fill_score, lang_id, 
-      participate_num)
+      participate_num, create_tno, start_time, stu_class_name)
     values (#{paperId,jdbcType=INTEGER}, #{paperName,jdbcType=VARCHAR}, #{paperCreateTime,jdbcType=TIMESTAMP}, 
       #{paperDuration,jdbcType=INTEGER}, #{paperDifficulty,jdbcType=INTEGER}, #{paperAttention,jdbcType=VARCHAR}, 
       #{paperType,jdbcType=INTEGER}, #{singleScore,jdbcType=INTEGER}, #{multipleScore,jdbcType=INTEGER}, 
       #{judgeScore,jdbcType=INTEGER}, #{fillScore,jdbcType=INTEGER}, #{langId,jdbcType=INTEGER}, 
-      #{participateNum,jdbcType=INTEGER})
+      #{participateNum,jdbcType=INTEGER}, #{tno,jdbcType=CHAR}, #{paperStartTime,jdbcType=TIMESTAMP}, #{className,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.mwt.oes.domain.Paper" >
     insert into paper
@@ -167,6 +171,15 @@
       <if test="participateNum != null" >
         participate_num,
       </if>
+      <if test="tno != null" >
+        create_tno,
+      </if>
+      <if test="paperStartTime != null" >
+        start_time,
+      </if>
+      <if test="className != null" >
+        stu_class_name,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="paperId != null" >
@@ -207,6 +220,15 @@
       </if>
       <if test="participateNum != null" >
         #{participateNum,jdbcType=INTEGER},
+      </if>
+      <if test="tno != null" >
+        #{tno,jdbcType=CHAR},
+      </if>
+      <if test="paperStartTime != null" >
+        #{paperStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="className != null" >
+        #{className,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -258,6 +280,15 @@
       <if test="record.participateNum != null" >
         participate_num = #{record.participateNum,jdbcType=INTEGER},
       </if>
+      <if test="record.tno != null" >
+        create_tno = #{record.tno,jdbcType=CHAR},
+      </if>
+      <if test="record.paperStartTime != null" >
+        start_time = #{record.paperStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.className != null" >
+        stu_class_name = #{record.className,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -277,7 +308,10 @@
       judge_score = #{record.judgeScore,jdbcType=INTEGER},
       fill_score = #{record.fillScore,jdbcType=INTEGER},
       lang_id = #{record.langId,jdbcType=INTEGER},
-      participate_num = #{record.participateNum,jdbcType=INTEGER}
+      participate_num = #{record.participateNum,jdbcType=INTEGER},
+      create_tno = #{record.tno,jdbcType=CHAR},
+      start_time = #{record.paperStartTime,jdbcType=TIMESTAMP},
+      stu_class_name = #{record.className,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -321,6 +355,15 @@
       <if test="participateNum != null" >
         participate_num = #{participateNum,jdbcType=INTEGER},
       </if>
+      <if test="record.tno != null" >
+        create_tno = #{record.tno,jdbcType=CHAR},
+      </if>
+      <if test="record.paperStartTime != null" >
+        start_time = #{record.paperStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.className != null" >
+        stu_class_name = #{record.className,jdbcType=VARCHAR},
+      </if>
     </set>
     where paper_id = #{paperId,jdbcType=INTEGER}
   </update>
@@ -337,7 +380,10 @@
       judge_score = #{judgeScore,jdbcType=INTEGER},
       fill_score = #{fillScore,jdbcType=INTEGER},
       lang_id = #{langId,jdbcType=INTEGER},
-      participate_num = #{participateNum,jdbcType=INTEGER}
+      participate_num = #{participateNum,jdbcType=INTEGER},
+      create_tno = #{record.tno,jdbcType=CHAR},
+      start_time = #{record.paperStartTime,jdbcType=TIMESTAMP},
+      stu_class_name = #{record.className,jdbcType=VARCHAR}
     where paper_id = #{paperId,jdbcType=INTEGER}
   </update>
 </mapper>
