@@ -906,132 +906,132 @@ public class PaperExample {
     }
 
     public Criteria andTnoIsNull() {
-      addCriterion("tno is null");
+      addCriterion("create_tno is null");
       return (Criteria) this;
     }
 
     public Criteria andTnoIsNotNull() {
-      addCriterion("tno is not null");
+      addCriterion("create_tno is not null");
       return (Criteria) this;
     }
 
     public Criteria andTnoEqualTo(String value) {
-      addCriterion("tno =", value, "tno");
+      addCriterion("create_tno =", value, "tno");
       return (Criteria) this;
     }
 
     public Criteria andTnoNotEqualTo(String value) {
-      addCriterion("tno <>", value, "tno");
+      addCriterion("create_tno <>", value, "tno");
       return (Criteria) this;
     }
 
     public Criteria andTnoGreaterThan(String value) {
-      addCriterion("tno >", value, "tno");
+      addCriterion("create_tno >", value, "tno");
       return (Criteria) this;
     }
 
     public Criteria andTnoGreaterThanOrEqualTo(String value) {
-      addCriterion("tno >=", value, "tno");
+      addCriterion("create_tno >=", value, "tno");
       return (Criteria) this;
     }
 
     public Criteria andTnoLessThan(String value) {
-      addCriterion("tno <", value, "tno");
+      addCriterion("create_tno <", value, "tno");
       return (Criteria) this;
     }
 
     public Criteria andTnoLessThanOrEqualTo(String value) {
-      addCriterion("tno <=", value, "tno");
+      addCriterion("create_tno <=", value, "tno");
       return (Criteria) this;
     }
 
     public Criteria andTnoLike(String value) {
-      addCriterion("tno like", value, "tno");
+      addCriterion("create_tno like", value, "tno");
       return (Criteria) this;
     }
 
     public Criteria andTnoNotLike(String value) {
-      addCriterion("tno not like", value, "tno");
+      addCriterion("create_tno not like", value, "tno");
       return (Criteria) this;
     }
 
     public Criteria andTnoIn(List<String> values) {
-      addCriterion("tno in", values, "tno");
+      addCriterion("create_tno in", values, "tno");
       return (Criteria) this;
     }
 
     public Criteria andTnoNotIn(List<String> values) {
-      addCriterion("tno not in", values, "tno");
+      addCriterion("create_tno not in", values, "tno");
       return (Criteria) this;
     }
 
     public Criteria andTnoBetween(String value1, String value2) {
-      addCriterion("tno between", value1, value2, "tno");
+      addCriterion("create_tno between", value1, value2, "tno");
       return (Criteria) this;
     }
 
     public Criteria andTnoNotBetween(String value1, String value2) {
-      addCriterion("tno not between", value1, value2, "tno");
+      addCriterion("create_tno not between", value1, value2, "tno");
       return (Criteria) this;
     }
 
     public Criteria andPaperStartTimeIsNull() {
-      addCriterion("paper_start_time is null");
+      addCriterion("start_time is null");
       return (Criteria) this;
     }
 
     public Criteria andPaperStartTimeIsNotNull() {
-      addCriterion("paper_start_time is not null");
+      addCriterion("start_time is not null");
       return (Criteria) this;
     }
 
     public Criteria andPaperStartTimeEqualTo(Date value) {
-      addCriterion("paper_start_time =", value, "paperStartTime");
+      addCriterion("start_time =", value, "paperStartTime");
       return (Criteria) this;
     }
 
     public Criteria andPaperStartTimeNotEqualTo(Date value) {
-      addCriterion("paper_start_time <>", value, "paperStartTime");
+      addCriterion("start_time <>", value, "paperStartTime");
       return (Criteria) this;
     }
 
     public Criteria andPaperStartTimeGreaterThan(Date value) {
-      addCriterion("paper_start_time >", value, "paperStartTime");
+      addCriterion("start_time >", value, "paperStartTime");
       return (Criteria) this;
     }
 
     public Criteria andPaperStartTimeGreaterThanOrEqualTo(Date value) {
-      addCriterion("paper_start_time >=", value, "paperStartTime");
+      addCriterion("start_time >=", value, "paperStartTime");
       return (Criteria) this;
     }
 
     public Criteria andPaperStartTimeLessThan(Date value) {
-      addCriterion("paper_start_time <", value, "paperStartTime");
+      addCriterion("start_time <", value, "paperStartTime");
       return (Criteria) this;
     }
 
     public Criteria andPaperStartTimeLessThanOrEqualTo(Date value) {
-      addCriterion("paper_start_time <=", value, "paperStartTime");
+      addCriterion("start_time <=", value, "paperStartTime");
       return (Criteria) this;
     }
 
     public Criteria andPaperStartTimeIn(List<Date> values) {
-      addCriterion("paper_start_time in", values, "paperStartTime");
+      addCriterion("start_time in", values, "paperStartTime");
       return (Criteria) this;
     }
 
     public Criteria andPaperStartTimeNotIn(List<Date> values) {
-      addCriterion("paper_start_time not in", values, "paperStartTime");
+      addCriterion("start_time not in", values, "paperStartTime");
       return (Criteria) this;
     }
 
     public Criteria andPaperStartTimeBetween(Date value1, Date value2) {
-      addCriterion("paper_start_time between", value1, value2, "paperStartTime");
+      addCriterion("start_time between", value1, value2, "paperStartTime");
       return (Criteria) this;
     }
 
     public Criteria andPaperStartTimeNotBetween(Date value1, Date value2) {
-      addCriterion("paper_start_time not between", value1, value2, "paperStartTime");
+      addCriterion("start_time not between", value1, value2, "paperStartTime");
       return (Criteria) this;
     }
 

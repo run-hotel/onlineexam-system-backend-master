@@ -1,5 +1,7 @@
 package com.mwt.oes.service;
 
+import com.mwt.oes.domain.Paper;
+
 import java.util.List;
 import java.util.Map;
 
@@ -13,4 +15,5 @@ public interface TeacherPaperService {
     public int randomInsertPaperInfo(Map<String, Object> obj);
     public Map<String, Object> getPaperQueDetailByLangId(Integer langId);
     public int fixedInsertPaperInfo(Map<String, Object> obj);
+    public Paper getTeaHuPsw(Integer tno);
 }

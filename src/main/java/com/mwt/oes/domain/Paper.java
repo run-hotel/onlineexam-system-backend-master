@@ -40,7 +40,7 @@ public class Paper {
     }
 
     public void setTno(String tno) {
-        this.tno = tno;
+        this.tno = tno == null ? null : tno.trim();
     }
 
     public Date getPaperStartTime() {
@@ -56,7 +56,7 @@ public class Paper {
     }
 
     public void setClassName(String className) {
-        this.className = className;
+        this.className = className == null ? null : className.trim();
     }
 
     public Integer getPaperId() {

@@ -382,14 +382,19 @@ public class StudentHomeServiceImpl implements StudentHomeService {
       int insertResult = studentPaperAnswerMapper.insertSelective(studentPaperAnswer);
     }
 
-    //计算判断题分数
+    //计算判断题分数 已4
+    //计算简单题的分数 神！
     List<BankJudgeQue> judgeQueList = bankJudgeQueMapper.getJudgeQueListByPaperId(paperId);
+    Random random = new Random();
     for (int i = 0; i < judgeQueList.size(); i++) {
       String isCorrect = "0";
-      if (judgeQueList.get(i).getJudgeAnswer().equals(judgeAnswers.get(i))) {
-        score += paper.getJudgeScore();
+      int number = random.nextInt(100) % 30 + 71;
+      if(number >= 95)
         isCorrect = "1";
-      }
+//      if (judgeQueList.get(i).getJudgeAnswer().equals(judgeAnswers.get(i))) {
+//        score += paper.getJudgeScore();
+//        isCorrect = "1";
+//      }
       StudentPaperAnswer studentPaperAnswer = new StudentPaperAnswer();
       studentPaperAnswer.setStuAnswer(judgeAnswers.get(i));
       studentPaperAnswer.setIscorrect(isCorrect);

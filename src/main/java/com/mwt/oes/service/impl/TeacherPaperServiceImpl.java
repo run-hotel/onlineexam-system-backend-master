@@ -37,6 +37,7 @@ public class TeacherPaperServiceImpl implements TeacherPaperService {
         List<Map<String, Object>> resultList = new ArrayList<>();
         PaperExample paperExample = new PaperExample();
         paperExample.setOrderByClause("paper_id asc");
+//        paperExample.
         List<Paper> paperList = paperMapper.selectByExample(paperExample);
         for (Paper paper : paperList) {
             Map<String, Object> map = new HashMap<>();
@@ -46,9 +47,12 @@ public class TeacherPaperServiceImpl implements TeacherPaperService {
 
             map.put("langId", paper.getLangId());
             ProgramingLanguage programingLanguage = programingLanguageMapper.selectByPrimaryKey(paper.getLangId());
-            map.put("langName", programingLanguage.getLangName());
-            map.put("langImgSrc", programingLanguage.getLangImgSrc());
-
+            if(programingLanguage.getLangName() != null) {
+                map.put("langName", programingLanguage.getLangName());
+            }
+            if(programingLanguage.getLangImgSrc() != null){
+                map.put("langImgSrc", programingLanguage.getLangImgSrc());
+            }
             map.put("paperDuration", paper.getPaperDuration());
             map.put("paperDifficulty", paper.getPaperDifficulty());
             map.put("paperAttention", paper.getPaperAttention());
@@ -610,7 +614,7 @@ public class TeacherPaperServiceImpl implements TeacherPaperService {
             bankMultipleChoiceQue.setComposeFlag("1");
             bankMultipleChoiceQueMapper.updateByPrimaryKeySelective(bankMultipleChoiceQue);
         }
-        //判断题
+        //简单题
         for (Integer judgeId : judgeNum) {
             PaperQue paperQue = new PaperQue();
             paperQue.setQueType(3);
@@ -639,4 +643,9 @@ public class TeacherPaperServiceImpl implements TeacherPaperService {
 
         return result;
     }
+  @Override
+  public Paper getTeaHuPsw(Integer tno) {
+    Paper paper = paperMapper.selectByPrimaryKey(tno);
+    return paper;
+  }
 }

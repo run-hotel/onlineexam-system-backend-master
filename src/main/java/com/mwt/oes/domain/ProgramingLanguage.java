@@ -29,9 +29,7 @@ public class ProgramingLanguage {
         this.langId = langId;
     }
 
-    public String getLangName() {
-        return langName;
-    }
+    public String getLangName() {return langName;}
 
     public void setLangName(String langName) {
         this.langName = langName == null ? null : langName.trim();
