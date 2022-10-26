@@ -272,7 +272,8 @@ public class TeacherStudentServiceImpl implements TeacherStudentService {
       String sno = (String) studentSingle.get("sno");
       String stuName = (String) studentSingle.get("stuName");
       String stuSex = (String) studentSingle.get("stuSex");
-      String stuClassName = (String) studentSingle.get("stuClassName");
+      String stuClassName = studentSingle.get("stuClassName").toString();
+      System.out.println(sno);
       responseStudent.put("学号", sno);
       responseStudent.put("姓名", stuName);
       responseStudent.put("性别", stuSex);

@@ -168,7 +168,7 @@ public class TeacherBankManageController {
         return ServerResponse.createBySuccess("文件上传成功",result);
     }
     // ----------------------------------------------------------------------------------
-    //    获取全部简答题信息
+    //    获取全部判断题信息
     @RequestMapping("/getJudgeList")
     public ServerResponse getJudgeList(){
         Map<String, Object> map = new HashMap<>();
@@ -176,19 +176,19 @@ public class TeacherBankManageController {
         map.put("judgeList",judgeList);
         List<Map<String, Object>> langOptions = teacherPaperService.getLangOptions();
         map.put("langOptions",langOptions);
-        return ServerResponse.createBySuccess("获取全部简答题信息成功",map);
+        return ServerResponse.createBySuccess("获取全部判断题信息成功",map);
     }
 
-    //    获取搜索简答题信息
+    //    获取搜索判断题信息
     @RequestMapping("/searchJudgeList")
     public ServerResponse searchJudgeList(@RequestParam("content")String content,
                                              @RequestParam("langId")Integer langId,
                                              @RequestParam("composeFlag")String composeFlag){
         List<Map<String, Object>> resultList = teacherBankManageService.searchJudgeList(content, langId, composeFlag);
-        return ServerResponse.createBySuccess("获取搜索简答题信息成功",resultList);
+        return ServerResponse.createBySuccess("获取搜索判断题信息成功",resultList);
     }
 
-    //  删除简答题
+    //  删除判断题
     @RequestMapping(value = "/deleteJudge",method = RequestMethod.POST)
     public ServerResponse deleteJudge(@RequestBody Map<String, Object> obj){
         int judgeId = (int) obj.get("judgeId");
@@ -200,7 +200,7 @@ public class TeacherBankManageController {
         }
     }
 
-    // 添加简答题题目
+    // 添加判断题题目
     @RequestMapping(value = "/insertJudgeInfo",method = RequestMethod.POST)
     public ServerResponse insertJudgeInfo(@RequestBody Map<String, Object> obj) {
         int result = teacherBankManageService.insertJudgeInfo(obj);
@@ -211,7 +211,7 @@ public class TeacherBankManageController {
         }
     }
 
-    // 更新简答题题目
+    // 更新判断题题目
     @RequestMapping(value = "/updateJudgeInfo",method = RequestMethod.POST)
     public ServerResponse updateJudgeInfo(@RequestBody Map<String, Object> obj) {
         int result = teacherBankManageService.updateJudgeInfo(obj);
@@ -221,7 +221,7 @@ public class TeacherBankManageController {
             return ServerResponse.createByError("数据库错误，更新失败");
         }
     }
-    // 添加导入简答题Excel文件
+    // 添加导入判断题Excel文件
     @RequestMapping(value = "/insertJudgeList",method = RequestMethod.POST)
     public ServerResponse insertJudgeList(@RequestBody Map<String, Object> obj){
         List<Map<String, Object>> judgeList = (List<Map<String, Object>>) obj.get("judgeList");

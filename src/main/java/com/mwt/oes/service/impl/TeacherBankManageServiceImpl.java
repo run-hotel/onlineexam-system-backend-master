@@ -112,7 +112,10 @@ public class TeacherBankManageServiceImpl implements TeacherBankManageService {
     public int insertSingleInfo(Map<String, Object> obj) {
         String content = (String) obj.get("content");
         String pictureSrc = (String) obj.get("pictureSrc");
-        String singleContent = content + "[[[" + pictureSrc.substring(40) + "]]]";
+        String singleContent = content;
+        if (!pictureSrc.equals("")) {
+            singleContent = content + "[[[" + pictureSrc.substring(40) + "]]]";
+        }
 
         String choiceA = (String) obj.get("choiceA");
         String choiceB = (String) obj.get("choiceB");
@@ -382,7 +385,7 @@ public class TeacherBankManageServiceImpl implements TeacherBankManageService {
         return result;
     }
 
-    // --------------------------------------------------------------------------------------简答题
+    // --------------------------------------------------------------------------------------判断题
 
     @Override
     public List<Map<String, Object>> getJudgeList() {

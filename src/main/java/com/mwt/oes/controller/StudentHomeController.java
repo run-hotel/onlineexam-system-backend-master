@@ -103,7 +103,7 @@ public class StudentHomeController {
   }
 
   /*
-     通过paperId获取试卷及单选题、多选题、简答题和填空题信息
+     通过paperId获取试卷及单选题、多选题、判断题和填空题信息
   */
   @RequestMapping("/getPapersInfoByPaperId")
   public ServerResponse getPapersInfoByPaperId(@RequestParam("paperId") Integer paperId) {
@@ -157,7 +157,7 @@ public class StudentHomeController {
     List<String> singleAnswers = (List) obj.get("singleAnswers");
     //多选题答案数组
     List<List<String>> multipleAnswers = (List) obj.get("multipleAnswers");
-    //简答题答案数组
+    //判断题答案数组
     List<String> judgeAnswers = (List) obj.get("judgeAnswers");
     //填空题答案数组
     List<String> fillAnswers = (List) obj.get("fillAnswers");

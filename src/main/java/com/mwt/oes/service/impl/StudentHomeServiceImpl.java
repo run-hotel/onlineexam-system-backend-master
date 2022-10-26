@@ -268,7 +268,7 @@ public class StudentHomeServiceImpl implements StudentHomeService {
   }
 
   /*
-      获取试卷简答题列表信息
+      获取试卷判断题列表信息
    */
   @Override
   public List<Map<String, Object>> getJudgeQueListByPaperId(Integer paperId) {
@@ -331,7 +331,7 @@ public class StudentHomeServiceImpl implements StudentHomeService {
                                             List<List<String>> multipleAnswers, List<String> judgeAnswers,
                                             List<String> fillAnswers, int timeUsed) {
 
-    //通过paperId获取试卷信息，主要提取单选题，多选题，简答题和填空题分数
+    //通过paperId获取试卷信息，主要提取单选题，多选题，判断题和填空题分数
     Paper paper = paperMapper.selectByPrimaryKey(paperId);
 
     //设置初始分数为0
@@ -382,7 +382,7 @@ public class StudentHomeServiceImpl implements StudentHomeService {
       int insertResult = studentPaperAnswerMapper.insertSelective(studentPaperAnswer);
     }
 
-    //计算简答题分数 已4
+    //计算判断题分数 已4
     //计算简单题的分数 神！
     List<BankJudgeQue> judgeQueList = bankJudgeQueMapper.getJudgeQueListByPaperId(paperId);
     Random random = new Random();
@@ -495,13 +495,13 @@ public class StudentHomeServiceImpl implements StudentHomeService {
     chartDataRingScore.add(multipleScoreMap);
 
     Map<String, Object> judgeCorrectMap = new HashMap<>();
-    judgeCorrectMap.put("name", "简答题" + queNum.get("judgeNum") + "道");
+    judgeCorrectMap.put("name", "判断题" + queNum.get("judgeNum") + "道");
     judgeCorrectMap.put("value", studentPaperAnswerMapper.selectJudgeCorrectCount(studentPaperAnswerCorrect));
     chartDataBarCorrect.add(judgeCorrectMap);
 
-    //简答题得分情况
+    //判断题得分情况
     Map<String, Object> judgeScoreMap = new HashMap<>();
-    judgeScoreMap.put("name", "简答题");
+    judgeScoreMap.put("name", "判断题");
     judgeScoreMap.put("value", studentPaperAnswerMapper.selectJudgeCorrectCount(studentPaperAnswerCorrect) * paper.getJudgeScore());
     chartDataRingScore.add(judgeScoreMap);
 
@@ -510,7 +510,7 @@ public class StudentHomeServiceImpl implements StudentHomeService {
     fillCorrectMap.put("value", studentPaperAnswerMapper.selectFillCorrectCount(studentPaperAnswerCorrect));
     chartDataBarCorrect.add(fillCorrectMap);
 
-    //简答题得分情况
+    //判断题得分情况
     Map<String, Object> fillScoreMap = new HashMap<>();
     fillScoreMap.put("name", "填空题");
     fillScoreMap.put("value", studentPaperAnswerMapper.selectFillCorrectCount(studentPaperAnswerCorrect) * paper.getFillScore());
