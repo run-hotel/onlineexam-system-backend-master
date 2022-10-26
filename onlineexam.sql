@@ -95,9 +95,9 @@ INSERT INTO `bank_fill_que` VALUES ('34', '测试手动录填空题哈哈哈', '
 -- ----------------------------
 DROP TABLE IF EXISTS `bank_judge_que`;
 CREATE TABLE `bank_judge_que` (
-  `judge_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '判断题id',
-  `judge_content` varchar(255) DEFAULT NULL COMMENT '判断题内容',
-  `judge_answer` varchar(255) DEFAULT NULL COMMENT '判断题答案',
+  `judge_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '简答题id',
+  `judge_content` varchar(255) DEFAULT NULL COMMENT '简答题内容',
+  `judge_answer` varchar(255) DEFAULT NULL COMMENT '简答题答案',
   `compose_flag` varchar(255) DEFAULT '0' COMMENT '是否被组成试卷',
   `answer_explain` varchar(255) DEFAULT NULL COMMENT '题目解析',
   `lang_id` int(11) DEFAULT NULL COMMENT '该题所属编程语言',
@@ -131,8 +131,8 @@ INSERT INTO `bank_judge_que` VALUES ('19', '声明并初始化二维数组int[ ]
 INSERT INTO `bank_judge_que` VALUES ('20', 'Java在循环中出现的break语句的作用是结束本次循环，执行下一次循环。（      ）', 'F', '1', null, '1');
 INSERT INTO `bank_judge_que` VALUES ('21', 'Java中，h22是合法的变量名，而22h是不合法的变量名。（  ）', 'T', '1', null, '1');
 INSERT INTO `bank_judge_que` VALUES ('22', 'Java中birthday和birthDay是两个不同的变量。（     ）。', 'T', '1', null, '1');
-INSERT INTO `bank_judge_que` VALUES ('23', '测试判断题1', 'T', '0', '测试判断题解析1', '1');
-INSERT INTO `bank_judge_que` VALUES ('24', '测试判断题2', 'F', '0', '测试判断题解析2', '3');
+INSERT INTO `bank_judge_que` VALUES ('23', '测试简答题1', 'T', '0', '测试简答题解析1', '1');
+INSERT INTO `bank_judge_que` VALUES ('24', '测试简答题2', 'F', '0', '测试简答题解析2', '3');
 
 -- ----------------------------
 -- Table structure for `bank_multiple_choice_que`
@@ -250,7 +250,7 @@ CREATE TABLE `paper` (
   `paper_type` int(11) DEFAULT NULL COMMENT '组卷机制，1为随机，2为固定',
   `single_score` int(11) DEFAULT NULL COMMENT '单选题分配分数',
   `multiple_score` int(11) DEFAULT NULL COMMENT '多选题分配分数',
-  `judge_score` int(11) DEFAULT NULL COMMENT '判断题分配分数',
+  `judge_score` int(11) DEFAULT NULL COMMENT '简答题分配分数',
   `fill_score` int(11) DEFAULT NULL COMMENT '填空题分配分数',
   `lang_id` int(11) DEFAULT NULL COMMENT '试卷所属编程语言',
   `participate_num` int(11) DEFAULT '0' COMMENT '已参加人数',
@@ -283,7 +283,7 @@ CREATE TABLE `paper_que` (
   `que_type` int(11) DEFAULT NULL COMMENT '题类型',
   `single_id` int(11) DEFAULT NULL COMMENT '单选题id',
   `multiple_id` int(11) DEFAULT NULL COMMENT '多选题id',
-  `judge_id` int(11) DEFAULT NULL COMMENT '判断题id',
+  `judge_id` int(11) DEFAULT NULL COMMENT '简答题id',
   `fill_id` int(11) DEFAULT NULL COMMENT '填空题id',
   `paper_id` int(11) DEFAULT NULL COMMENT '试卷id',
   PRIMARY KEY (`que_id`),

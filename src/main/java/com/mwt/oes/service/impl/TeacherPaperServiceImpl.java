@@ -314,17 +314,17 @@ public class TeacherPaperServiceImpl implements TeacherPaperService {
 
         int multipleNum = multipleChoiceQueList.size();
 
-        // 获取判断题问题列表
+        // 获取简答题问题列表
         List<BankJudgeQue> judgeQueList = bankJudgeQueMapper.getJudgeQueListByPaperId(paperId);
         for (BankJudgeQue bankJudgeQue : judgeQueList){
             int judgeIndex = judgeQueList.indexOf(bankJudgeQue);
             Map<String, Object> judgeMap = new HashMap<>();
             judgeMap.put("id",judgeIndex + 5 + singleNum + multipleNum);
 
-            //获取判断题题目内容
+            //获取简答题题目内容
             judgeMap.put("label",(judgeIndex + 1 + singleNum + multipleNum) + "、" + bankJudgeQue.getJudgeContent());
 
-            //获取判断题正确答案
+            //获取简答题正确答案
             List<Map<String, Object>> judgeAnswersList = new ArrayList<>();
             Map<String, Object> judgeAnswer = new HashMap<>();
             judgeAnswer.put("id",judgeIndex*1 + totalNum + 5 + singleNum*8 + multipleNum*8);
@@ -430,7 +430,7 @@ public class TeacherPaperServiceImpl implements TeacherPaperService {
             bankMultipleChoiceQueMapper.updateByPrimaryKeySelective(bankMultipleChoiceQue);
         }
 
-        //  判断题
+        //  简答题
         List<BankJudgeQue> bankJudgeQueList = bankJudgeQueMapper.getRandomJudgeByCountAndLangId(langId, judgeNum);
         for (BankJudgeQue bankJudgeQue : bankJudgeQueList) {
             int judgeId = bankJudgeQue.getJudgeId();
@@ -519,7 +519,7 @@ public class TeacherPaperServiceImpl implements TeacherPaperService {
             int id = (int) (Math.pow(10,String.valueOf(judgeId).length())*3 + judgeId);
             judgeMap.put("id",id);
 //            System.out.println(judgeId + "---" + id);
-            //获取判断题题目内容
+            //获取简答题题目内容
             String composeFlag = bankJudgeQue.getComposeFlag();
             String composeStr = composeFlag.equals("1") ? "（已组过）" : "（未组过）";
             judgeMap.put("label",composeStr + (bankJudgeQueList.indexOf(bankJudgeQue) + 1) + "、" + bankJudgeQue.getJudgeContent());

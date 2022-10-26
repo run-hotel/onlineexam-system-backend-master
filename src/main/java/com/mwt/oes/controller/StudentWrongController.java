@@ -75,7 +75,7 @@ public class StudentWrongController {
     }
 
     /*
-       通过sno和paperId获取错题试卷及单选题、多选题、判断题和填空题信息
+       通过sno和paperId获取错题试卷及单选题、多选题、简答题和填空题信息
     */
     @RequestMapping("/getPapersInfoByWrongPaperId")
     public ServerResponse getPapersInfoByWrongPaperId(@RequestParam("sno")String sno,
@@ -162,16 +162,16 @@ public class StudentWrongController {
         }
     }
     /*
-        通过answerId获取收藏判断题信息
+        通过answerId获取收藏简答题信息
     */
     @RequestMapping("/getJudgeByAnswerId")
     public ServerResponse getJudgeByAnswerId(@RequestParam("answerId")Integer answerId){
         Map<String, Object> map = studentWrongService.getJudgeByAnswerId(answerId);
         if(map != null){
-            return ServerResponse.createBySuccess("通过answerId获取收藏判断题信息成功",map);
+            return ServerResponse.createBySuccess("通过answerId获取收藏简答题信息成功",map);
         }
         else {
-            return ServerResponse.createByError("通过answerId获取收藏判断题信息失败");
+            return ServerResponse.createByError("通过answerId获取收藏简答题信息失败");
         }
     }
     /*

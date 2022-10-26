@@ -304,7 +304,7 @@ public class StudentWrongServiceImpl implements StudentWrongService {
     }
 
     /*
-        获取试卷判断题列表信息
+        获取试卷简答题列表信息
      */
     @Override
     public List<Map<String, Object>> getJudgeQueListByWrongPaperId(String sno, Integer paperId) {
@@ -629,7 +629,7 @@ public class StudentWrongServiceImpl implements StudentWrongService {
         return map;
     }
     /*
-        通过answerId获取收藏判断题信息
+        通过answerId获取收藏简答题信息
     */
     public Map<String, Object> getJudgeByAnswerId(Integer answerId){
         Map<String, Object> map = new HashMap<>();

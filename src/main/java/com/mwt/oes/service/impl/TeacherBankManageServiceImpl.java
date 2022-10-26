@@ -382,7 +382,7 @@ public class TeacherBankManageServiceImpl implements TeacherBankManageService {
         return result;
     }
 
-    // --------------------------------------------------------------------------------------判断题
+    // --------------------------------------------------------------------------------------简答题
 
     @Override
     public List<Map<String, Object>> getJudgeList() {
